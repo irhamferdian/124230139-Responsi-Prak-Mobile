@@ -29,7 +29,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             children: [
 
-              // Username
+              
               TextFormField(
                 controller: usernameC,
                 decoration: InputDecoration(
@@ -41,7 +41,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               SizedBox(height: 20),
 
-              // Password
+              
               TextFormField(
                 controller: passwordC,
                 obscureText: true,
@@ -54,7 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               SizedBox(height: 30),
 
-              // Tombol Register
+              
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -67,17 +67,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         password: passwordC.text.trim(),
                       );
 
-                      // SIMPAN KE HIVE
+                      
                       hive.register(newUser);
 
-                      // Snackbar
+                      
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text("Registrasi berhasil! Silahkan login."),
                         ),
                       );
 
-                      // Pindah ke Login
+                      
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
@@ -91,7 +91,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
               const SizedBox(height: 20),
 
-              // Sudah punya akun?
+              
               TextButton(
                 child: Text("Sudah punya akun? Login"),
                 onPressed: () {

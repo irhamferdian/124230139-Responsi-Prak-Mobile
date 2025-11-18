@@ -18,7 +18,7 @@ class CartItem extends StatelessWidget {
       child: Row(
         children: [
 
-          // Gambar
+          
           Image.network(
             product.image,
             height: 70,
@@ -27,7 +27,7 @@ class CartItem extends StatelessWidget {
 
           SizedBox(width: 15),
 
-          // Info
+          
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

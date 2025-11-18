@@ -7,7 +7,7 @@ import 'services/session_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Init Hive
+  
   await Hive.initFlutter();
   await Hive.openBox('users');    
   await Hive.openBox('session');  
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       future: session.getLogin(),
       builder: (context, snapshot) {
 
-        // 1) Loading awal saat future belum selesai
+        
         if (snapshot.connectionState == ConnectionState.waiting) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           );
         }
 
-        // 2) Ketika future selesai (meskipun hasilnya null)
+        
         final username = snapshot.data;
         final isLoggedIn = username != null;
 

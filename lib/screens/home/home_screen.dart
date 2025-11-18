@@ -32,9 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         backgroundColor: Colors.blue,
 
-        // ✔ Tombol Profile + Cart
+        
         actions: [
-          // Tombol Profile
+          
           IconButton(
             icon: Icon(Icons.person, color: Colors.white),
             onPressed: () {
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
 
-          // Tombol Cart
+         
           IconButton(
             icon: Icon(Icons.shopping_cart, color: Colors.white),
             onPressed: () {

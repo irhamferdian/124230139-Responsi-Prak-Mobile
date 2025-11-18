@@ -20,12 +20,12 @@ class _CartScreenState extends State<CartScreen> {
   @override
   void initState() {
     super.initState();
-    productsFuture = loadData();     // <-- WAJIB (fix late init)
+    productsFuture = loadData();    
   }
 
   Future<List<ProductModel>> loadData() async {
-    cartIds = await session.getCart();     // Ambil isi keranjang
-    return await api.fetchProducts();      // Ambil list produk
+    cartIds = await session.getCart();     
+    return await api.fetchProducts();      
   }
 
   @override
@@ -35,7 +35,7 @@ class _CartScreenState extends State<CartScreen> {
         title: Text("My Cart"),
       ),
       body: FutureBuilder<List<ProductModel>>(
-        future: productsFuture,   // <-- sudah pasti initialized
+        future: productsFuture,   
         builder: (context, snapshot) {
           
           if (snapshot.connectionState == ConnectionState.waiting) {

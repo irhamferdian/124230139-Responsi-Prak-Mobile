@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
           key: _formKey,
           child: Column(
             children: [
-              // Username
+             
               TextFormField(
                 controller: usernameC,
                 decoration: InputDecoration(
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: 20),
 
-              // Password
+              
               TextFormField(
                 controller: passwordC,
                 obscureText: true,
@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: 30),
 
-              // Tombol Login
+              
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -74,10 +74,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         return;
                       }
 
-                      // Simpan session ke SharedPreferences
+                      
                       await session.saveLogin(user.username);
 
-                      // Navigasi ke Home
+                      
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(

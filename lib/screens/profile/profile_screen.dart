@@ -20,13 +20,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
     loadUsername();
   }
 
-  // Ambil username dari SharedPreferences
+  
   void loadUsername() async {
     final user = await session.getLogin();
     setState(() => username = user ?? "");
   }
 
-  // Ambil foto dari kamera
+  
   Future pickFromCamera() async {
     final imagePicked = await ImagePicker().pickImage(
       source: ImageSource.camera,
@@ -38,7 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-  // Ambil foto dari galeri
+  
   Future pickFromGallery() async {
     final imagePicked = await ImagePicker().pickImage(
       source: ImageSource.gallery,
@@ -62,7 +62,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           children: [
 
-            // Foto Profil
+            
             Center(
               child: CircleAvatar(
                 radius: 60,
@@ -77,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
             SizedBox(height: 20),
 
-            // Tombol camera + gallery
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -97,18 +97,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
             SizedBox(height: 30),
 
-            // Data statis
+            
             infoItem("Nama", "Irham Ferdiansyah"),
             infoItem("NIM", "124230139"),
 
             SizedBox(height: 20),
 
-            // Data dinamis
+            
             infoItem("Username", username),
 
             SizedBox(height: 40),
 
-            // LOGOUT BUTTON
+            
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -131,7 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  // Widget untuk menampilkan informasi
+  
   Widget infoItem(String title, String value) {
     return Container(
       width: double.infinity,

@@ -18,7 +18,7 @@ class ProductCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           
-          // Gambar Produk
+          
           Expanded(
             child: Center(
               child: Image.network(
@@ -30,7 +30,7 @@ class ProductCard extends StatelessWidget {
 
           SizedBox(height: 8),
 
-          // Judul
+          
           Text(
             product.title,
             maxLines: 2,
@@ -40,7 +40,7 @@ class ProductCard extends StatelessWidget {
 
           SizedBox(height: 5),
 
-          // Harga
+          
           Text(
             "\$${product.price}",
             style: TextStyle(

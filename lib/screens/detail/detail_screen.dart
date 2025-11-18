@@ -51,7 +51,7 @@ class _DetailScreenState extends State<DetailScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            // Gambar
+            
             Center(
               child: Image.network(
                 p.image,
@@ -60,35 +60,35 @@ class _DetailScreenState extends State<DetailScreen> {
             ),
             SizedBox(height: 20),
 
-            // Title
+            
             Text(
               p.title,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
 
-            // Price
+            
             Text(
               "\$${p.price}",
               style: TextStyle(fontSize: 18, color: Colors.blue),
             ),
             SizedBox(height: 10),
 
-            // Category
+            
             Text(
               "Category: ${p.category}",
               style: TextStyle(fontSize: 14, fontStyle: FontStyle.italic),
             ),
             SizedBox(height: 20),
 
-            // Description
+            
             Text(
               p.description,
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 30),
 
-            // Button Add to Cart
+            
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
