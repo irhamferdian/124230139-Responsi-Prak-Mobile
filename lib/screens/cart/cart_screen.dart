@@ -14,19 +14,18 @@ class _CartScreenState extends State<CartScreen> {
   final api = ApiService();
   final session = SessionService();
 
+  late Future<List<ProductModel>> productsFuture;
   List<int> cartIds = [];
-  late Future<List<ProductModel>> products;
 
   @override
   void initState() {
     super.initState();
-    loadCart();
+    productsFuture = loadData();     // <-- WAJIB (fix late init)
   }
 
-  void loadCart() async {
-    cartIds = await session.getCart();
-    products = api.fetchProducts();
-    setState(() {});
+  Future<List<ProductModel>> loadData() async {
+    cartIds = await session.getCart();     // Ambil isi keranjang
+    return await api.fetchProducts();      // Ambil list produk
   }
 
   @override
@@ -36,24 +35,24 @@ class _CartScreenState extends State<CartScreen> {
         title: Text("My Cart"),
       ),
       body: FutureBuilder<List<ProductModel>>(
-        future: products,
+        future: productsFuture,   // <-- sudah pasti initialized
         builder: (context, snapshot) {
+          
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           }
 
-          // Semua produk
-          final allProducts = snapshot.data ?? [];
+          if (!snapshot.hasData) {
+            return Center(child: Text("Keranjang kosong"));
+          }
 
-          // Filter berdasarkan ID di cart
+          final allProducts = snapshot.data!;
           final cartProducts = allProducts
               .where((p) => cartIds.contains(p.id))
               .toList();
 
           if (cartProducts.isEmpty) {
-            return Center(
-              child: Text("Keranjang kosong"),
-            );
+            return Center(child: Text("Keranjang kosong"));
           }
 
           return ListView.builder(

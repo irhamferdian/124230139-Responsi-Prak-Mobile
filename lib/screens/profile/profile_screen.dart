@@ -98,8 +98,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             SizedBox(height: 30),
 
             // Data statis
-            infoItem("Nama", "Link Tp"),
-            infoItem("NIM", "00000000"),
+            infoItem("Nama", "Irham Ferdiansyah"),
+            infoItem("NIM", "124230139"),
 
             SizedBox(height: 20),
 

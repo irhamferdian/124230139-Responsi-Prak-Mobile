@@ -4,6 +4,7 @@ import '/models/product_model.dart';
 import '/widgets/product_cart.dart';
 import '../detail/detail_screen.dart';
 import '../cart/cart_screen.dart';
+import '../profile/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -24,17 +25,33 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("E-Commerce"),
+        title: Text(
+          "E-Commerce",
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
+        backgroundColor: Colors.blue,
+
+        // ✔ Tombol Profile + Cart
         actions: [
+          // Tombol Profile
           IconButton(
-            icon: Icon(Icons.shopping_cart),
+            icon: Icon(Icons.person, color: Colors.white),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (_) => CartScreen(),
-                ),
+                MaterialPageRoute(builder: (_) => ProfileScreen()),
+              );
+            },
+          ),
+
+          // Tombol Cart
+          IconButton(
+            icon: Icon(Icons.shopping_cart, color: Colors.white),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => CartScreen()),
               );
             },
           ),
@@ -44,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: FutureBuilder<List<ProductModel>>(
         future: products,
         builder: (context, snapshot) {
+
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           }
@@ -57,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
           return GridView.builder(
             padding: EdgeInsets.all(10),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,        // 2 kolom
+              crossAxisCount: 2,        
               mainAxisSpacing: 10,
               crossAxisSpacing: 10,
               childAspectRatio: 0.7,
